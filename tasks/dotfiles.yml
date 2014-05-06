@@ -12,3 +12,9 @@
 
 # git config
 - file: src="{{ ansible_env.HOME }}/configs/git/dot_gitconfig" dest="{{ ansible_env.HOME }}/.gitconfig" state=link
+
+# bash config
+- file: src="{{ ansible_env.HOME }}/configs/bash/bashrc" dest="{{ ansible_env.HOME }}/.bashrc" state=link force=yes
+- file: src="{{ ansible_env.HOME }}/configs/bash/bash_aliases" dest="{{ ansible_env.HOME }}/.bash_aliases" state=link force=yes
+- file: src="{{ ansible_env.HOME }}/configs/bash/bash_functions" dest="{{ ansible_env.HOME }}/.bash_functions" state=link force=yes
+- file: src="{{ ansible_env.HOME }}/configs/bash/bash_profile" dest="{{ ansible_env.HOME }}/.bash_profile" state=link force=yes
