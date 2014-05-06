@@ -8,4 +8,5 @@
   with_items:
     - { repo: 'git@bitbucket.org:etank/configs.git', dest: 'configs' }
     - { repo: 'https://github.com/Lokaltog/powerline-fonts.git', dest: 'code/powerline-fonts' }
+    - { repo: 'git@github.rackspace.com:nebopsadmins/global-auth-info.git', dest: 'code/global-auto-info' }
 
