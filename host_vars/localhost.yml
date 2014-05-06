@@ -10,3 +10,4 @@ applications:
   - weechat
   - terminator
   - ansible
+  - clipit
