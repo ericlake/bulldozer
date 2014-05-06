@@ -1,0 +1,9 @@
+---
+- name: Install needed rpms
+  yum: name={{ item }} state=present
+  with_items: applications
+  sudo: yes
+
+- name: Install Chrome
+  yum: name=/home/elake/Downloads/rpms/google-chrome-stable_current_x86_64.rpm state=present
+  sudo: yes

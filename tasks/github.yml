@@ -1,0 +1,11 @@
+---
+
+- name: Create the code directory in users home
+  file: path="{{ ansible_env.HOME }}/code" state=directory
+
+- name: Clone repos to the code directory
+  git: repo={{ item.repo }} dest={{ ansible_env.HOME }}/{{ item.dest }} accept_hostkey=yes
+  with_items:
+    - { repo: 'git@bitbucket.org:etank/configs.git', dest: 'configs' }
+    - { repo: 'https://github.com/Lokaltog/powerline-fonts.git', dest: 'code/powerline-fonts' }
+

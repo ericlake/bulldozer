@@ -1,0 +1,14 @@
+---
+# vim config
+- file: src="{{ ansible_env.HOME }}/configs/vim" dest="{{ ansible_env.HOME }}/.vim" state=link
+- file: src="{{ ansible_env.HOME }}/configs/vim/dot_vimrc" dest="{{ ansible_env.HOME }}/.vimrc" state=link
+- file: src="{{ ansible_env.HOME }}/configs/vim/dot_gvimrc" dest="{{ ansible_env.HOME }}/.gvimrc" state=link
+
+# weechat
+- file: src="{{ ansible_env.HOME }}/configs/weechat" dest="{{ ansible_env.HOME }}/.weechat" state=link
+
+# tumx config
+- file: src="{{ ansible_env.HOME }}/configs/tmux/dot_tmux.conf" dest="{{ ansible_env.HOME }}/.tmux.conf" state=link
+
+# git config
+- file: src="{{ ansible_env.HOME }}/configs/git/dot_gitconfig" dest="{{ ansible_env.HOME }}/.gitconfig" state=link

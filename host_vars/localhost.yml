@@ -1,0 +1,12 @@
+applications:
+  - vim
+  - git
+  - python-pip
+  - golang
+  - thunderbird
+  - thunderbird-enigmail
+  - thunderbird-lightning
+  - tmux
+  - weechat
+  - terminator
+  - ansible
