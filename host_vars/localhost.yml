@@ -12,3 +12,5 @@ applications:
   - ansible
   - clipit
   - synergy
+  - python-virtualenvwrapper
+  - python-virtualenv
