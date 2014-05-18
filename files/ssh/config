@@ -1,0 +1,162 @@
+## Personal systems
+Host bast
+    Hostname bast.etanklake.com
+    ForwardAgent yes
+    User elake
+    Port 2222
+
+Host mal
+    Hostname 10.6.38.255
+    User elake
+
+Host irc
+    HostName 10.180.6.163
+    ForwardAgent yes
+    Port 2222
+    User elake
+    ProxyCommand ssh -W %h:%p bast
+
+Host web1
+    HostName 10.180.38.164
+    ForwardAgent yes
+    Port 2222
+    User elake
+    ProxyCommand ssh -W %h:%p bast
+
+Host web2
+    HostName 10.180.30.221
+    ForwardAgent yes
+    Port 2222
+    User elake
+    ProxyCommand ssh -W %h:%p bast
+
+Host ghost
+    HostName 166.78.159.34
+    ForwardAgent yes
+    User elake
+    ProxyCommand ssh -W %h:%p bast
+## End Personal systems
+
+## NebOps node
+Host darkwing
+    Hostname darkwing-n01.prod.us.ccp.rackspace.net
+    User eric6133
+    IdentityFile ~/.ssh/id_rsa.darkwing
+Host tracking
+    Hostname tracking-db-n01.prod.us.ccp.rackspace.net
+    User eric6133
+    IdentityFile ~/.ssh/id_rsa
+## End NebOps node
+
+## Reach node
+Host ord1-reach-web0.k1k.me
+    User eric6133
+    IdentityFile ~/.ssh/id_rsa.reach
+## End Reach
+
+## Bastions
+Host a-linfarm01
+    Hostname a-linfarm01.ord1.corp.rackspace.com
+    User eric6133
+    ForwardAgent yes
+    IdentityFile ~/.ssh/id_rsa.signup
+
+Host a-linfarm02
+    Hostname a-linfarm02.ord1.corp.rackspace.com
+    User eric6133
+    ForwardAgent yes
+    IdentityFile ~/.ssh/id_rsa.signup
+## End Bastions
+
+## Sign-Up Service stuff
+# Staging nodes
+Host s-signup1
+    Hostname s-signup1.uscloud.ord1.corp.rackspace.com
+    User eric6133
+    ProxyCommand ssh -W %h:%p a-linfarm01
+
+Host s-signup2
+    Hostname s-signup2.uscloud.ord1.corp.rackspace.com
+    User eric6133
+    ProxyCommand ssh -W %h:%p a-linfarm01
+# Production nodes
+Host a-signup1
+    Hostname a-signup1.uscloud.ord1.corp.rackspace.com
+    User eric6133
+    ProxyCommand ssh -W %h:%p a-linfarm01
+
+Host a-signup2
+    Hostname a-signup2.uscloud.ord1.corp.rackspace.com
+    User eric6133
+    ProxyCommand ssh -W %h:%p a-linfarm01
+## End Sign-Up Service stuff
+
+## CSL Stuff
+# Staging nodes
+Host s-soajws9
+    Hostname s-soajws9.ord1.corp.rackspace.com
+    User eric6133
+    ProxyCommand ssh -W %h:%p a-linfarm01
+
+Host s-soajws10
+    Hostname s-soajws10.ord1.corp.rackspace.com
+    User eric6133
+    ProxyCommand ssh -W %h:%p a-linfarm01
+# Production nodes
+Host a-soajws9
+    Hostname a-soajws9.dfw1.corp.rackspace.com
+    User eric6133
+    ProxyCommand ssh -W %h:%p a-linfarm01
+
+Host a-soajws10
+    Hostname a-soajws10.dfw1.corp.rackspace.com
+    User eric6133
+    ProxyCommand ssh -W %h:%p a-linfarm01
+## End CSL Stuff
+
+## ZTM stuff
+Host ztm-*
+    User eric.lake
+    IdentityFile ~/.ssh/id_rsa.lbaas
+## End ZTM stuff
+
+## Mail server
+Host thunderbolt
+    Hostname thunderbolt-n01.prod.lon3.uk.ci.rackspace.net
+    User eric6133
+    ForwardAgent yes
+    IdentityFile ~/.ssh/id_rsa
+
+# mail.lists.mosso.com
+Host mail
+    Hostname 172.17.14.112 
+    User eric6133
+    ProxyCommand ssh -W %h:%p thunderbolt
+
+#Host ops-n02.*
+#    ProxyCommand none
+#
+#Host db-*.dfw2
+#        Hostname db-*.dfw2.clouddb.rackspace.net
+#        ForwardAgent yes
+#        ProxyCommand ssh -e none tyler.duzan@ops-n01.dfw2.clouddb.rackspace.net exec nc -w 5 %h %p
+#
+#Host db-*.lon3.clouddb.rackspace.net
+#        ForwardAgent yes
+#        ProxyCommand ssh -e none tyler.duzan@ops-n01.lon3.clouddb.rackspace.net exec nc -w 5 %h %p
+#
+#Host db-*.ord1.clouddb.rackspace.net
+#        ForwardAgent yes
+#        ProxyCommand ssh -e none tyler.duzan@ops-n01.ord1.clouddb.rackspace.net exec nc -w 5 %h %p
+#
+#Host *.dfw2.clouddb.rackspace.net
+#        ForwardAgent yes
+#        ProxyCommand ssh -e none tyler.duzan@ops-n01.dfw2.clouddb.rackspace.net exec nc -w 5 %h %p
+#
+#Host *.lon3.clouddb.rackspace.net
+#        ForwardAgent yes
+#        ProxyCommand ssh -e none tyler.duzan@ops-n01.lon3.clouddb.rackspace.net exec nc -w 5 %h %p
+#
+#Host *.ord1.clouddb.rackspace.net
+#        ForwardAgent yes
+#        ProxyCommand ssh -W %h:%p ops-n01

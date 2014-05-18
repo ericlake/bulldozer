@@ -15,6 +15,18 @@
 
 # bash config
 - file: src="{{ ansible_env.HOME }}/configs/bash/bashrc" dest="{{ ansible_env.HOME }}/.bashrc" state=link force=yes
+
 - file: src="{{ ansible_env.HOME }}/configs/bash/bash_aliases" dest="{{ ansible_env.HOME }}/.bash_aliases" state=link force=yes
+
 - file: src="{{ ansible_env.HOME }}/configs/bash/bash_functions" dest="{{ ansible_env.HOME }}/.bash_functions" state=link force=yes
+
 - file: src="{{ ansible_env.HOME }}/configs/bash/bash_profile" dest="{{ ansible_env.HOME }}/.bash_profile" state=link force=yes
+
+# ssh keys
+- file: src="/files/ssh/{{ ansible_hostname }}_id_rsa" dest="{{ ansible_env.HOME }}/.ssh/id_rsa" state=file mode=0600
+
+- file: src="/files/ssh/{{ ansible_hostname }}_id_rsa.pub" dest="{{ ansible_env.HOME }}/.ssh/id_rsa.pub" state=file  mode=0644
+
+- file: src="/files/ssh/{{ ansible_hostname }}_known_hosts" dest="{{ ansible_env.HOME }}/.ssh/known_hosts" state=file mode=0664
+
+- file: src="/files/ssh/config" dest="{{ ansible_env.HOME }}/.ssh/config" state=file mode=0600
