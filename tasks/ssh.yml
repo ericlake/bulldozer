@@ -1,0 +1,7 @@
+---
+# ssh keys 
+- file: path={{ ansible_env.HOME }}/.ssh state=directory
+- template: src=templates/private_key.j2 dest="{{ ansible_env.HOME }}/.ssh/id_rsa" mode=0600
+- template: src=templates/public_key.j2 dest="{{ ansible_env.HOME }}/.ssh/id_rsa.pub" mode=0644
+#- template: src=templates/known_hosts.j2 dest="{{ ansible_env.HOME }}/.ssh/known_hosts" mode=0664
+- copy: src="files/ssh/config" dest="{{ ansible_env.HOME }}/.ssh/config" mode=0600

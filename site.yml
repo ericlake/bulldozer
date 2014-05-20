@@ -4,5 +4,6 @@
   tasks:
     - include: tasks/downloads.yml tags=download
     - include: tasks/apps.yml tags=apps
+    - include: tasks/ssh.yml tags=ssh
     - include: tasks/github.yml tags=github
     - include: tasks/dotfiles.yml tags=dotfiles
